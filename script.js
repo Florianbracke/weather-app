@@ -1,19 +1,28 @@
 
+
+
 function getWeather(){
-//variables    inside function for now
+
+const key = "e83c0d271e5edc4f99d6d218e446d655"; 
 let cityName = "gent";
 let api = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`;
-const key = "e83c0d271e5edc4f99d6d218e446d655"; 
+
 
 fetch(api)
-    .then ( function(response) {
-        let data = response.json();console.log(data)
-        return data;
-        
-    } )
+    .then(response => response.json())
+        .then(data => {
+                let clouds= data.list[1].clouds.all;
+                let today = data.list[1];
+                let tomorrow = data.list[2];
+                console.log(today, tomorrow, clouds);
+                document.getElementById("clouds").innerHTML= clouds;
+        } )
+ }
+ 
 
-    
-}
+
+
+
 //     function weatherForm(){
 //     const inputCity = document.getElementById("weatherForm");                
 //     inputCity.addEventListener("submit", (e) => {
