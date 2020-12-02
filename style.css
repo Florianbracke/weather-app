@@ -2,3 +2,10 @@ body{
     background-color: rgb(191, 220, 245);
 }
 
+.container{
+    display:grid;
+    height:100%;
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+    gap: 10px;
+    background-color: white;
+}
