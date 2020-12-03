@@ -1,33 +1,33 @@
 body{
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
-    background-color: rgb(253, 221, 173);
     gap: 5%;
-}
-.container1{
-    background-color:rgb(255, 244, 223);
-}
-
-.container2{
-    background-color:rgb(143, 125, 92);
+    background: url(images/sunnycold.jpg);
+    background-size: cover;
+    color: rgb(255, 255, 255);
 }
 
-.container3{
-    background-color: rgb(255, 244, 223);
+button{
+    
+}
+
+.button {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+.container{
+    min-width: 300px;
+    min-height: 360px;
+    margin:auto;
+    margin-top: 5%;
     text-align: center;
+    background-color: rgba(3, 5, 2, 0.568);
+    border-radius: 10px;
+    opacity: 0.9;
 }
-
-.container4{
-    background-color: rgb(143, 125, 92);
-}
-
-.container5{
-    background-color: rgb(255, 244, 223);
-}
-
-
-
-
 .form {
     padding-top: 50px;
     text-align: center;

@@ -11,37 +11,38 @@
 
 <body>
    
+   
+<div class="container">
 
-<div class="container1"></div>
-<div class="container2"></div>
-<div class="container3">
+        <div class="form">
+            <label> <strong> Enter your city!</strong></label> <br><br>
+            <input type="text" class="city" placeholder="    ...enter your city 🔍"><br><br>
+            <input type="submit" class="submitButton" onclick="getWeather()" value="Get weather" id="run">
+        </div>
 
-    <div class="form">
-        <label> <strong> Enter your city!</strong></label> <br><br>
-        <input type="text" class="city" placeholder="Enter city here...">
-        <input type="submit" class="submitButton" onclick="getWeather()" value="Get weather" id="run">
+
+        <div class="forecastNow" id="weather">
+            <p id="date"></p> 
+            <p id="temperatureNow"><strong>Temperature?</strong>  </p>
+            <p id="cloudsNow"><strong>clouds?</strong></p>
+            <p id="windspeedNow"><strong>Wind?</strong></p>
+            <p id="rainNow"> </p>
+        </div>
+
+
+        <div class="containertwo">
+            <button id="run1" onclick="minusThreeHours()">-3 hours</button>
+            <button id="run2" onclick="addThreeHours()">+3 hours</button>
+        </div>
+
+
+        <div class="imgcontainer"><br>
+            <img id="weatherlogo1" src="" class="one"> 
+        </div>
     </div>
 
-    <div class="forecastNow" id="weather">
-        <p id="date"></p> <hr>  
-        <p id="temperatureNow"> Sweater or skirt weather?  </p>
-        <p id="cloudsNow">Minimum temperature?</p>
-        <p id="windspeedNow">Maximum temperature?</p>
-        <p id="rainNow"> </p>
-    </div>
+  
 
-    <div class="imgcontainer">
-        <img src="images/weather.png" alt="sun" class="one">
-    </div>
-
-    <div class="containertwo">
-        <label> Add three hours to your weather forecast!</label> <br>
-        <button id="run2" onclick="addThreeHours()">+ 3 hours</button>
-    </div>
-
-</div>
-<div class="container4"></div>
-<div class="container5"></div>
 
 </body>
 </html>
