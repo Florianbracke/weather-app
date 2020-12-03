@@ -11,47 +11,37 @@
 
 <body>
    
-    <input type="text" class="city" placeholder="Enter city here...">
-    <input type="submit" class="submitButton" onclick="getWeather()" value="Get weather" id="run">
 
+<div class="container1"></div>
+<div class="container2"></div>
+<div class="container3">
 
-<div class="container">
-    <div class="forecast" id="weather">
-        <p id="date"></p>
-        <p id="dateNow"></p>    
-        <p id="temperatureNow"></p>
-        <p id="minimumtemperatureNow"></p>
-        <p id="maximumtemperatureNow"></p>
-        <p id="rainNow"></p>
-        <br>
-        <p id="date3h"></p>    
-        <p id="temperature3h"></p>
-        <p id="minimumtemperature3h"></p>
-        <p id="maximumtemperature3h"></p>
-        <p id="rain3h"></p>
-        <br>
-        <p id="dateAfter6h"></p>    
-        <p id="temperature6h"></p>
-        <p id="minimumtemperature6h"></p>
-        <p id="maximumtemperature6h"></p>
-        <p id="rain6h"></p>
+    <div class="form">
+        <label> <strong> Enter your city!</strong></label> <br><br>
+        <input type="text" class="city" placeholder="Enter city here...">
+        <input type="submit" class="submitButton" onclick="getWeather()" value="Get weather" id="run">
     </div>
+
+    <div class="forecastNow" id="weather">
+        <p id="date"></p> <hr>  
+        <p id="temperatureNow"> Sweater or skirt weather?  </p>
+        <p id="cloudsNow">Minimum temperature?</p>
+        <p id="windspeedNow">Maximum temperature?</p>
+        <p id="rainNow"> </p>
+    </div>
+
+    <div class="imgcontainer">
+        <img src="images/weather.png" alt="sun" class="one">
+    </div>
+
+    <div class="containertwo">
+        <label> Add three hours to your weather forecast!</label> <br>
+        <button id="run2" onclick="addThreeHours()">+ 3 hours</button>
+    </div>
+
 </div>
-
-
-
-
-
-<!-- temporarly button to run funciton for GENT-->
-<!-- <p id="city">Ghent</p>   
-<button id="run" onclick="getWeather()"></button> 
-<p id="clouds"></p> -->
-
-
-    
-    
-    
-
+<div class="container4"></div>
+<div class="container5"></div>
 
 </body>
 </html>

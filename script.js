@@ -1,68 +1,43 @@
 
-
+let array = [];
 
 function getWeather(){
+ //variables   
 cityName = document.querySelector(".city").value;
-
-//variables
 const key = "e83c0d271e5edc4f99d6d218e446d655"; 
 let api = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`;
 
+console.log(array)
 //set current date
- document.getElementById("date").innerHTML = new Date();
+
 console.log(cityName)
 fetch(api)
     .then(response => response.json())
         .then(data => {
-            
-                let dateNow = data.list[0].dt_txt;
-                let temperatureNow = (Math.floor(data.list[0].main.temp -273));
-                let minimumtemperatureNow = (Math.floor(data.list[0].main.temp_min - 273));
-                let maximumtemperatureNow = (Math.floor(data.list[0].main.temp_max - 273));
-                let rainNow = data.list.rain;
+            let date = data.list[Number(array.length)].dt_txt
+            let temperatureNow = (data.list[Number(array.length)].main.temp -273);
+            let cloudsNow = (data.list[Number(array.length)].clouds.all);
+            let windspeedNow = (data.list[Number(array.length)].main.temp_max - 273);
+            let rain
+                document.getElementsByTagName("img").src = "sun"
+                document.getElementById("date").innerHTML = "Weather for "+ cityName +  " at " +date;
+                document.getElementById("temperatureNow").innerHTML = "Outside temperature is " + "<strong>" + temperatureNow.toFixed(2) + " </strong>"+ "°C!";
+                // if (temperatureNow > 15){document.querySelector()}
+                document.getElementById("cloudsNow").innerHTML ="The sky is covered for " + "<strong>"+cloudsNow +"</strong>"+ "% with clouds." ;
+                document.getElementById("windspeedNow").innerHTML ="You can expect windspeed at " + "<strong>"+(windspeedNow *3.6).toFixed(2) +"</strong> km/h";
 
-                document.getElementById("dateNow").innerHTML = dateNow;
-                document.getElementById("temperatureNow").innerHTML = temperatureNow;
-                document.getElementById("minimumtemperatureNow").innerHTML = minimumtemperatureNow;
-                document.getElementById("maximumtemperatureNow").innerHTML =maximumtemperatureNow;
-                document.getElementById("rainNow").innerHTML = rainNow;  
-                // if there is no rain
-                if (rainNow == undefined)
-                {document.getElementById("rainNow").innerHTML = "no rain!" };
-                
-
+                console.log(data)
+                if (array.length > 39) {
+                    location.reload()
+                }
         } )
  }
- 
-
-
-
-
-//     function weatherForm(){
-//     const inputCity = document.getElementById("weatherForm");                
-//     inputCity.addEventListener("submit", (e) => {
-//         e.preventDefault();
-//         console.log(inputCity);
-//    })
-// }
-// fetch('https://reqres.in/api/users', {
-//     method: 'POST',
-//     headers: {
-//         'content-type' : 'application/json'
-//     },
-//     body: JSON.stringify({
-//         name: 'weather today'
-//     })
-// }
-   
-//     .then(response => {
-//         return response.json()
-//     })
-//     //response.json())
-//     .then(data => console.log(data))
-    
-// )
-
-
-
-
+ console.log(array.length)
+function addThreeHours(){
+    cityName = document.querySelector(".city").value;
+    console.log(cityName);
+    array.push("threehours"); 
+    if (array.length > 0) {
+     return getWeather()
+    }
+}

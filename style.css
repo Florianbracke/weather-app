@@ -1,9 +1,40 @@
 body{
-    background-color: rgb(191, 220, 245);
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+    background-color: rgb(253, 221, 173);
+    gap: 5%;
+}
+.container1{
+    background-color:rgb(255, 244, 223);
 }
 
-.container{
-    /* display:grid;
-    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); */
-    background-color: white;
+.container2{
+    background-color:rgb(143, 125, 92);
+}
+
+.container3{
+    background-color: rgb(255, 244, 223);
+    text-align: center;
+}
+
+.container4{
+    background-color: rgb(143, 125, 92);
+}
+
+.container5{
+    background-color: rgb(255, 244, 223);
+}
+
+
+
+
+.form {
+    padding-top: 50px;
+    text-align: center;
+}
+
+img {
+    
+    max-width: 150px;
+    
 }
