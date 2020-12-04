@@ -6,17 +6,16 @@
     <script src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather-app</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 </head>
 
 
 <body>
-   
-   
-<div class="container">
+    <div class="container">
 
         <div class="form">
             <label> <strong> Enter your city!</strong></label> <br><br>
-            <input type="text" class="city" placeholder="    ...enter your city 🔍"><br><br>
+            <input type="text" class="city" placeholder=" ...enter your city here 🔍"><br><br>
             <input type="submit" class="submitButton" onclick="getWeather()" value="Get weather" id="run">
         </div>
 
@@ -24,7 +23,7 @@
         <div class="forecastNow" id="weather">
             <p id="date"></p> 
             <p id="temperatureNow"><strong>Temperature?</strong>  </p>
-            <p id="cloudsNow"><strong>clouds?</strong></p>
+            <p id="cloudsNow"><strong>Clouds?</strong></p>
             <p id="windspeedNow"><strong>Wind?</strong></p>
             <p id="rainNow"> </p>
         </div>
@@ -39,10 +38,9 @@
         <div class="imgcontainer"><br>
             <img id="weatherlogo1" src="" class="one"> 
         </div>
+        
+        <canvas id="myChart" width="400" height="300"></canvas>
+
     </div>
-
-  
-
-
 </body>
 </html>
