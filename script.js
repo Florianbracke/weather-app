@@ -7,7 +7,7 @@ function getWeather(){
     //variables 
     cityName = document.querySelector(".city").value
     const key = "e83c0d271e5edc4f99d6d218e446d655"
-    let api = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
+    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
 
    //fetch data
    dataSet= fetch(api)
@@ -30,7 +30,7 @@ function getWeather(){
 
               //  console.log(date.getTime() / 1000)
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                let timeLanguage = timeToDate.toLocaleDateString('nl-NL', options);
+                let timeLanguage = timeToDate.toLocaleDateString(undefined, options);
 
                 // put data into HTML
                 document.getElementById("date").innerHTML = cityName + ", "  + data.city.country + " at " + timeZoneHours +"'o clock " +timeLanguage;
@@ -38,11 +38,8 @@ function getWeather(){
                 document.getElementById("cloudsNow").innerHTML ="The sky is covered for " + "<strong>"+cloudsNow +"</strong>"+ "% with clouds." ;
                 document.getElementById("windspeedNow").innerHTML ="You can expect windspeed at " + "<strong>"+(windspeedNow *3.6).toFixed(2) +"</strong> km/h";
                       
-                // reach end of data
-                if (array.length > 39) {
-                    location.reload()}
-                    
-                    //place pictures onto HTML
+      
+                //place pictures onto HTML
                    
             })
 } 
@@ -52,8 +49,9 @@ var i = [];
 
 setInterval(() => {
     i.push("boom")
-    if (i.length > 9)
-    {clearInterval}
+    if (i.length == 10)
+    {i.length = 1}
+   console.log(i.length)
     
     document.querySelector("body").style.background=`url(images/${i.length}.jpg)`
     document.querySelector("body").style.backgroundSize = "cover" 
