@@ -76,7 +76,7 @@ function graph(){
     //variables 
     cityName = document.querySelector(".city").value
     const key = "e83c0d271e5edc4f99d6d218e446d655"
-    let api = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
+    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
 
     //fetch data
     fetch(api)
