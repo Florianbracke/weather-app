@@ -1,57 +1,46 @@
+//TODO: function accordion
+//TODO: random city
+
+
 
 //variables DOM
-let array = []
+    let array = [];
+    var i = [];
 
 function getWeather(){  
-
     //variables 
-    cityName = document.querySelector(".city").value
-    const key = "e83c0d271e5edc4f99d6d218e446d655"
-    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
+    const key = "e83c0d271e5edc4f99d6d218e446d655";
+    let cityName = document.querySelector(".city").value; 
+    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`;
+        // cityName = document.querySelector(".city").value
+        // const key = "e83c0d271e5edc4f99d6d218e446d655"
+        // let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
 
    //fetch data
-   dataSet= fetch(api)
-        .then(response => response.json())
-            .then(data => {
+    fetch(api) .then(response => response.json()) .then(data => {
                 let date = data.list[Number(array.length)].dt_txt
                 let temperatureNow = (data.list[Number(array.length)].main.temp -273);
                 let cloudsNow = (data.list[Number(array.length)].clouds.all);
                 let windspeedNow = (data.list[Number(array.length)].main.temp_max - 273);
                 
                 //to get time data 
-                let timeZone = Number(data.city.timezone)
-                let timeCity = data.list[Number(array.length)].dt
-                let time =  timeCity - timeZone
-                let timeToDate = new Date(time * 1000)  // = timezone inclusive
-                let timeZoneHours = timeToDate.getHours()
-                 // let timeZoneMinutes = timeToDate.getMinutes()       <---- get this to work
-               
-                
-
-              //  console.log(date.getTime() / 1000)
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                let timeLanguage = timeToDate.toLocaleDateString(undefined, options);
+                let timeZoneHour = Number((data.city.timezone)-3600) / 3600;
+                let cityTimeZoneHour = new Date().getHours() + timeZoneHour;
 
                 // put data into HTML
-                document.getElementById("date").innerHTML = cityName + ", "  + data.city.country + " at " + timeZoneHours +"'o clock " +timeLanguage;
+                document.getElementById("date").innerHTML = cityName + ", "  + data.city.country + " at " + cityTimeZoneHour +"'o clock " ;
                 document.getElementById("temperatureNow").innerHTML = "Outside temperature is " + "<strong>" + temperatureNow.toFixed(2) + " </strong>"+ "°C!";
                 document.getElementById("cloudsNow").innerHTML ="The sky is covered for " + "<strong>"+cloudsNow +"</strong>"+ "% with clouds." ;
                 document.getElementById("windspeedNow").innerHTML ="You can expect windspeed at " + "<strong>"+(windspeedNow *3.6).toFixed(2) +"</strong> km/h";
-                      
-      
                 //place pictures onto HTML
                    
             })
 } 
 
-
-var i = [];
-
-setInterval(() => {
-    i.push("boom")
+setInterval(backgroundPicture = () => {
+    i.push("Supercalifragilisticexpialidocious")
     if (i.length == 10)
     {i.length = 1}
-   console.log(i.length)
     
     document.querySelector("body").style.background=`url(images/${i.length}.jpg)`
     document.querySelector("body").style.backgroundSize = "cover" 
@@ -71,17 +60,31 @@ function minusThreeHours(){
     }  
 }
 
-function graph(){
+function randomCity(){
+    let apiCity = `https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/6ee538beca8914133259b401ba47a550313e8984/countries.json`
+    fetch(apiCity) 
+        .then(response => response.json()) 
+            .then(data => {
+            
+            // get random array out of object 
+            let randomArray = Object.values(data)[Math.floor(Math.random()*(Object.keys(data).length))]
+            // get random index out of above
+            let randomCity = Math.floor(Math.random()*randomArray.length)
+            
+            document.querySelector(".city").value = randomArray[randomCity]
 
+            getWeather(); graph();
+    })}
+
+function graph(){
     //variables 
-    cityName = document.querySelector(".city").value
-    const key = "e83c0d271e5edc4f99d6d218e446d655"
-    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`
 
     //fetch data
-    fetch(api)
-        .then(response => response.json())
-            .then(data => {
+    const key = "e83c0d271e5edc4f99d6d218e446d655";
+     cityName = document.querySelector(".city").value; 
+    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${key}`;
+
+    fetch(api) .then(response => response.json()) .then(data => {
                 let i = "";
 
                     //prepare arrays for X- & Y-axis
@@ -145,4 +148,6 @@ function graph(){
             }) 
 }
 
+
+    
 

@@ -7,14 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather-app</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 
 <body>
+    <!-- <h2>Accordion</h2>
+
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+     -->
     <div class="container">
 
         <div class="form">
-           
+            
             <input type="text" class="city" placeholder=" ...enter your city here 🔍"><br><br>
             <input type="submit" class="submitButton" onclick=" getWeather(), graph()" value="Get weather" id="run">
         </div>
@@ -31,16 +49,19 @@
 
         <div class="containertwo">
             <button id="run1" onclick="minusThreeHours()">-3 hours</button>
-            <button id="run2" onclick="addThreeHours()">+3 hours</button>
+            <button id="run2" onclick="addThreeHours()">+3 hours</button>  
+            <button id="run3" onclick="randomCity() "> Random City Button</button>
         </div>
 
 
         <div class="imgcontainer"><br>
             <img id="weatherlogo1" src="" class="one"> 
         </div>
-        
+      
         <canvas id="myChart" width="400" height="300"></canvas>
-
+        
     </div>
+
+    
 </body>
 </html>
